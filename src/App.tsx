@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container } from './components/Container/Container';
+import { ConfigProvider } from 'antd/lib';
+import { ThemeConfig } from 'antd/es/config-provider/context';
 
 function App() {
+  const theme: ThemeConfig = {
+    components: { Input: {} },
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfigProvider
+      theme={{
+        // token: {
+        //   borderRadius: 4,
+        //   colorPrimary: '#000',
+        // },
+        components: {
+          Input: { fontSize: 24 },
+        },
+      }}
+    >
+      <Container />
+    </ConfigProvider>
   );
 }
 
