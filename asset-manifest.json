@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/seminar-frontend/static/css/main.635ae9b7.css",
-    "main.js": "/seminar-frontend/static/js/main.5d09884a.js",
+    "main.js": "/seminar-frontend/static/js/main.7a9cdd4a.js",
     "static/media/7.png": "/seminar-frontend/static/media/7.d4dc8f043647d6e087e3.png",
     "static/media/img.png": "/seminar-frontend/static/media/img.978c6af105f186606af9.png",
     "static/media/1.png": "/seminar-frontend/static/media/1.35f5767dc57a4bfda99f.png",
@@ -42,10 +42,10 @@
     "index.html": "/seminar-frontend/index.html",
     "static/media/index.cjs": "/seminar-frontend/static/media/index.bab733886d4c9bd36de5.cjs",
     "main.635ae9b7.css.map": "/seminar-frontend/static/css/main.635ae9b7.css.map",
-    "main.5d09884a.js.map": "/seminar-frontend/static/js/main.5d09884a.js.map"
+    "main.7a9cdd4a.js.map": "/seminar-frontend/static/js/main.7a9cdd4a.js.map"
   },
   "entrypoints": [
     "static/css/main.635ae9b7.css",
-    "static/js/main.5d09884a.js"
+    "static/js/main.7a9cdd4a.js"
   ]
 }
