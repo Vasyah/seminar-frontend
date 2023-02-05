@@ -3,6 +3,7 @@ import axios from 'axios';
 import { getRegistrationTemplate } from '../helpers/getRegistrationTemplate';
 
 const serverPath = 'http://62.217.183.154:7000/';
+
 export const createUser = (user: IUser) => {
   const body = { ...user };
 

@@ -18,14 +18,6 @@ const BodyContainer = styled.div`
 `;
 
 export const Container: FC<ILayout> = (props: ILayout) => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:5000/users')
-      .then((result) => setUsers(result.data));
-  }, []);
-
   const Container = styled.div``;
   return (
     <Container>
