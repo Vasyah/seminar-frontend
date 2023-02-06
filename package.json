@@ -1,7 +1,6 @@
 {
   "name": "seminar-landing",
   "version": "0.1.0",
-  "homepage": "https://vasyah.github.io/seminar-frontend",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
