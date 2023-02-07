@@ -2,7 +2,7 @@ import { IUser } from '../types';
 import axios from 'axios';
 import { getRegistrationTemplate } from '../helpers/getRegistrationTemplate';
 
-const serverPath = 'localhost:7000/';
+const serverPath = 'https://seminar-moskva.ru/';
 
 export const createUser = (user: IUser) => {
   const body = { ...user };
