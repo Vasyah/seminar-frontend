@@ -121,10 +121,10 @@ export const Tips: FC<ITips> = (props: ITips) => {
         </Panel>
         <Panel header="Время заезда и отъезда" key="3">
           <Typography.Paragraph>
-            Заезд на базу возможен с 28 октября 2022г. с 11:00
+            Заезд на базу возможен с 21 октября 2023г. с 11:00
           </Typography.Paragraph>
           <Typography.Paragraph>
-            Отъезд с базы возможен 30 октября 2022г. с 16:00
+            Отъезд с базы возможен 23 октября 2023г. с 16:00
           </Typography.Paragraph>
         </Panel>
       </Collapse>
