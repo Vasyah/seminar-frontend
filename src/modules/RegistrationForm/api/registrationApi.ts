@@ -8,7 +8,18 @@ export const createUser = (user: IUser) => {
   const body = { ...user };
 
   return axios
-    .post<IUser, any>(serverPath + 'users', { ...body })
+    .post<IUser, any>(
+      serverPath + 'users',
+      { ...body },
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'access-control-allow-credentials': true,
+          vary: 'Origin',
+          host: 'seminar-moskva.ru:7000',
+        },
+      },
+    )
     .then((result) => result.data);
 };
 
