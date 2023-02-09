@@ -3,7 +3,7 @@ import axios from 'axios';
 import { getRegistrationTemplate } from '../helpers/getRegistrationTemplate';
 
 export class RegistrationApi {
-  private static serverPath = 'http://seminarmsk.ru:7000/';
+  private static serverPath = 'https://seminarmsk.ru:7000/';
 
   static createUser = (user: IUser) => {
     const body = { ...user };
