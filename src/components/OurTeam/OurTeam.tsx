@@ -44,6 +44,7 @@ const members: IMember[] = [
     imgPath: sasha,
     isMain: true,
   },
+
   {
     name: 'Карюк Наталья',
     imgPath: natalia,
@@ -54,6 +55,12 @@ const members: IMember[] = [
     name: 'Ким Сын Хи',
     imgPath: synhi,
     description: 'Вопросы питания',
+    isMain: true,
+  },
+  {
+    name: 'Козловский Андрей',
+    imgPath: andrei,
+    status: '',
     isMain: true,
   },
   {
@@ -95,13 +102,6 @@ const members: IMember[] = [
     phoneLink: 'tel:+79645739497',
     telegram: 'anastasia23051',
     isMain: false,
-  },
-  {
-    name: 'Козловский Андрей',
-    imgPath: andrei,
-    description: 'Организационные вопросы',
-    status: '',
-    isMain: true,
   },
 ];
 

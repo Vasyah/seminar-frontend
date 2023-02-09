@@ -1,5 +1,5 @@
 export interface IUser {
-  id?:number
+  id?: number;
   name: string;
   town: string;
   birthDate: string;
@@ -10,4 +10,6 @@ export interface IUser {
   isVegan: boolean;
   isConcert: boolean;
   isCar: boolean;
+  isRegistrationsEmailSent?: boolean;
+  isPaymentEmailSent?: boolean;
 }

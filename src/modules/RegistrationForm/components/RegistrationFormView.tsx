@@ -17,8 +17,18 @@ export const RegistrationFormView: FC<IRegistrationFormView> = ({
 
   const onSubmit = async (user: IUser) => {
     RegistrationApi.createUser({ ...user })
-      .then((data) => {
-        RegistrationApi.sendRegistrationEmail(user);
+      .then((result) => {
+        const data = result?.data as IUser;
+
+        if (data) {
+          if (data?.id) {
+            RegistrationApi.sendRegistrationEmail(user).then(() => {
+              RegistrationApi.updateUser(data?.id, {
+                isRegistrationsEmailSent: true,
+              });
+            });
+          }
+        }
       })
       .catch((e) => console.log(e));
   };

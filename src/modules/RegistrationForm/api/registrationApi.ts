@@ -8,26 +8,28 @@ export class RegistrationApi {
   static createUser = (user: IUser) => {
     const body = { ...user };
 
-    return axios
-      .post<IUser, any>(this.serverPath + 'users', { ...body })
-      .then((result) => result.data);
+    return axios.post<IUser, any>(this.serverPath + 'users', { ...body });
+  };
+
+  static updateUser = (id: number | undefined, user: Partial<IUser>) => {
+    const body = { ...user };
+
+    if (!id) return;
+    return axios.patch<void, any>(this.serverPath + 'users/' + `${id}`, {
+      ...body,
+    });
   };
 
   static sendRegistrationEmail = (user: IUser) => {
     const template = getRegistrationTemplate(user);
 
-    return axios
-      .post<IUser, any>(this.serverPath + 'mailer', {
-        email: user.email,
-        template,
-      })
-      .then((result) => console.log(result));
+    return axios.post<IUser, any>(this.serverPath + 'mailer', {
+      email: user.email,
+      template,
+    });
   };
 
   static getUsers = () => {
-    return axios
-      .get(this.serverPath + 'users', {})
-      .then((result) => console.log(result))
-      .catch((e) => console.error(e));
+    return axios.get(this.serverPath + 'users', {});
   };
 }

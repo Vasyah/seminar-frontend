@@ -39,21 +39,22 @@ const BannerContainer = styled.header`
 `;
 
 const StyledTitle = styled(Typography.Title)`
-  background: linear-gradient(90deg, #732f77, #483c83, #2aa1ea);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  padding: 0.3em 0.6em;
-  margin-bottom: 0 !important;
+  //background: linear-gradient(90deg, #732f77, #483c83, #2aa1ea);
+  //-webkit-background-clip: text;
+  //-webkit-text-fill-color: transparent;
+  //display: inline-block;
+  //padding: 0.3em 0.6em;
+  //margin-bottom: 0 !important;
   //border: 3px solid transparent;
-  //text-shadow: 1px 1px 2px #732f77;
+  color: #ffffff !important;
+  text-shadow: 3px 3px #582c8f;
 `;
 
 export const Banner: FC<IBanner> = (props: IBanner) => {
   const size = useWindowSize();
   return (
     <BannerContainer>
-      <StyledTitle level={size > 2 ? 2 : 4} style={{ color: '#fff' }}>
+      <StyledTitle level={size > 2 ? 2 : 4}>
         Мир человека в любви Господа
       </StyledTitle>
       <StyledTitle

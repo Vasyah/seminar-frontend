@@ -56,7 +56,7 @@ export const getRegistrationTemplate = (user: IUser): string => {
 
   const isTeacher = user.status === 'Учитель';
   const coordinator = getCoordinator(user.town);
-  const paymentAttention = `<p style='font-size:17px'>Для подтверждения участия в Семинаре, необходимо произвести <b style='color: red;text-decoration:underline'>оплату до 11 марта 2022г.</b>, по указанным реквизитам:</p>`;
+  const paymentAttention = `<p style='font-size:17px'>Для подтверждения участия в Семинаре, необходимо произвести <b style='color: red;text-decoration:underline'>оплату до 10 марта 2023г.</b>, по указанным реквизитам:</p>`;
   const paymentType = getPaymentType(user.town);
 
   const template = getTemplate(
