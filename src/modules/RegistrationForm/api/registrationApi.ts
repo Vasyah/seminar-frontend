@@ -2,34 +2,32 @@ import { IUser } from '../types';
 import axios from 'axios';
 import { getRegistrationTemplate } from '../helpers/getRegistrationTemplate';
 
-const serverPath = 'https://seminar-moskva.ru/';
+export class RegistrationApi {
+  private static serverPath = 'http://seminarmsk.ru:7000/';
 
-export const createUser = (user: IUser) => {
-  const body = { ...user };
+  static createUser = (user: IUser) => {
+    const body = { ...user };
 
-  return axios
-    .post<IUser, any>(
-      serverPath + 'users',
-      { ...body },
-      {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'access-control-allow-credentials': true,
-          vary: 'Origin',
-          host: 'seminar-moskva.ru:7000',
-        },
-      },
-    )
-    .then((result) => result.data);
-};
+    return axios
+      .post<IUser, any>(this.serverPath + 'users', { ...body })
+      .then((result) => result.data);
+  };
 
-export const sendRegistrationEmail = (user: IUser) => {
-  const template = getRegistrationTemplate(user);
+  static sendRegistrationEmail = (user: IUser) => {
+    const template = getRegistrationTemplate(user);
 
-  return axios
-    .post<IUser, any>(serverPath + 'mailer', {
-      email: user.email,
-      template,
-    })
-    .then((result) => console.log(result));
-};
+    return axios
+      .post<IUser, any>(this.serverPath + 'mailer', {
+        email: user.email,
+        template,
+      })
+      .then((result) => console.log(result));
+  };
+
+  static getUsers = () => {
+    return axios
+      .get(this.serverPath + 'users', {})
+      .then((result) => console.log(result))
+      .catch((e) => console.error(e));
+  };
+}

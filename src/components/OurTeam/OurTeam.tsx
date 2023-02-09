@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-import { Avatar, Col, Row, Space, Typography } from 'antd';
+import { Avatar, Col, Row, Typography } from 'antd';
 import styled from 'styled-components';
 import Link from 'antd/es/typography/Link';
-import banner from './banner.jpg';
 import { breakpoints } from '../../utils/breakpoints';
 import daria from '../../images/ourTeam/1.png';
 import sasha from '../../images/ourTeam/2.png';
@@ -13,6 +12,7 @@ import vasya from '../../images/ourTeam/6.png';
 import ksusha from '../../images/ourTeam/7.png';
 import nastya from '../../images/ourTeam/8.png';
 import andrei from '../../images/ourTeam/9.png';
+import { useWindowSize } from '../../hooks/useSize';
 
 export interface IOurTeam {}
 
@@ -106,12 +106,18 @@ const members: IMember[] = [
 ];
 
 export const OurTeam: FC<IOurTeam> = (props: IOurTeam) => {
+  const size = useWindowSize();
+
   return (
     <OurTeamContainer>
-      <Typography.Title level={1}>Команда организаторов</Typography.Title>
-      <Typography.Title level={3}>
-        Мы будем рады ответить на любой вопрос!
-      </Typography.Title>
+      <div style={{ padding: '0 10px' }}>
+        <Typography.Title level={size > 2 ? 2 : 4}>
+          Команда организаторов
+        </Typography.Title>
+        <Typography.Title level={size > 2 ? 3 : 5}>
+          Мы будем рады ответить на любой вопрос!
+        </Typography.Title>
+      </div>
       <Row gutter={[16, 16]} className={'mt-3'} justify={'center'}>
         {members.map(
           (

@@ -2,26 +2,15 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Typography } from 'antd';
 import banner from '../../images/banner/img.png';
+import { breakpoints } from '../../utils/breakpoints';
+import { useWindowSize } from '../../hooks/useSize';
 
 export interface IBanner {}
 
 const BannerContainer = styled.header`
   width: 100%;
   text-align: center;
-  background: center center/contain no-repeat url(${banner});
-  //background: -webkit-linear-gradient(
-  //  90deg,
-  //  #0f1530,
-  //  #2fbded,
-  //  #d1ebf8
-  //); /* Chrome 10-25, Safari 5.1-6 */
-  //background: linear-gradient(
-  //  90deg,
-  //  #0f1530,
-  //  #2fbded,
-  //  #d1ebf8
-  //); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: 100% 500px;
+  background: center center/cover no-repeat url(${banner});
   min-height: 500px;
   //max-width: 1440px;
   //padding-top: 150px;
@@ -29,19 +18,50 @@ const BannerContainer = styled.header`
   color: white;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: column;
+
+  @media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.md}) {
+    min-height: 350px;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  @media (min-width: ${breakpoints.md}) and (max-width: ${breakpoints.lg}) {
+    min-height: 500px;
+  }
+  @media (min-width: ${breakpoints.lg}) and (max-width: ${breakpoints.xl}) {
+    min-height: 700px;
+  }
+  @media (min-width: ${breakpoints.xl}) {
+    min-height: 700px;
+  }
+`;
+
+const StyledTitle = styled(Typography.Title)`
+  background: linear-gradient(90deg, #732f77, #483c83, #2aa1ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  margin-bottom: 0 !important;
+  //border: 3px solid transparent;
+  //text-shadow: 1px 1px 2px #732f77;
 `;
 
 export const Banner: FC<IBanner> = (props: IBanner) => {
+  const size = useWindowSize();
   return (
     <BannerContainer>
-      <Typography.Title level={1} style={{ color: '#fff' }}>
+      <StyledTitle level={size > 2 ? 2 : 4} style={{ color: '#fff' }}>
         Мир человека в любви Господа
-      </Typography.Title>
-      <Typography.Title level={3} style={{ color: '#fff' }}>
+      </StyledTitle>
+      <StyledTitle
+        level={size > 2 ? 3 : 5}
+        style={{ color: '#fff', marginBottom: '0!important' }}
+      >
         21-23 апреля 2023 года
-      </Typography.Title>
+      </StyledTitle>
     </BannerContainer>
   );
 };

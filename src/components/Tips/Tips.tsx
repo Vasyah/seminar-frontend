@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { breakpoints } from '../../utils/breakpoints';
 import { PlusOutlined } from '@ant-design/icons';
+import { useWindowSize } from '../../hooks/useSize';
 
 export interface ITips {}
 
@@ -23,23 +24,21 @@ const NumberList = styled.ol`
   //color: #000;
 `;
 
-const TipsContainer = styled.div`
-  text-align: center;
-  //max-width: ${breakpoints.sm};
-  //margin: 0 auto;
-`;
-
 export const Tips: FC<ITips> = (props: ITips) => {
+  const size = useWindowSize();
+
   return (
     <Row>
       <Collapse
-        expandIcon={() => <PlusOutlined style={{ fontSize: '36px' }} />}
+        expandIcon={() => (
+          <PlusOutlined style={{ fontSize: size > 2 ? '36px' : '18px' }} />
+        )}
         expandIconPosition={'end'}
         ghost
         style={{
           margin: '0 auto',
           width: breakpoints.sm,
-          fontSize: '24px',
+          fontSize: size > 2 ? '24px' : '16px',
           // textAlign: 'left',
           fontWeight: 'bold',
           alignItems: 'center',

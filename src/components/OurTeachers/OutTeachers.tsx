@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
 import 'react-multi-carousel/lib/styles.css';
-import { breakpoints } from '../../utils/breakpoints';
 import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -30,22 +28,17 @@ import Kovalenkovi from '../../images/ourTeachers/21.jpeg';
 import IgorNebesnii from '../../images/ourTeachers/22.png';
 import OlgaKrilova from '../../images/ourTeachers/23.jpeg';
 import { Typography, Image, Button } from 'antd';
+import { ImageContainer, OurTeamContainer } from './styles';
+import { useWindowSize } from '../../hooks/useSize';
 
 export interface IOurTeam {}
-
-const OurTeamContainer = styled.div`
-  padding: 0 2rem;
-  max-width: ${breakpoints.lg};
-  margin: 2rem auto 0;
-  text-align: center;
-`;
 
 export interface ITeachers {
   name: string;
   imgPath: string;
 }
 
-export const OurTeaches: FC<IOurTeam> = (props: IOurTeam) => {
+export const OurTeachers: FC<IOurTeam> = (props: IOurTeam) => {
   const settings: Settings = {
     dots: true,
     infinite: true,
@@ -85,26 +78,11 @@ export const OurTeaches: FC<IOurTeam> = (props: IOurTeam) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: false,
-          arrows: false,
+          arrows: true,
         },
       },
     ],
   };
-
-  const ImageContainer = styled.div<{ imgPath: string }>`
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-transition: opacity 0.1s linear;
-    transition: opacity 0.1s linear;
-    background-image: url(${(props) => props.imgPath});
-  `;
 
   const teachers: ITeachers[] = [
     { name: 'Кузьмина Лариса Алексеевна', imgPath: LarisaAlekseevna },
@@ -134,9 +112,13 @@ export const OurTeaches: FC<IOurTeam> = (props: IOurTeam) => {
     { name: 'Небесный Игорь Викторович', imgPath: IgorNebesnii },
     { name: 'Крылова Ольга Николаевна', imgPath: OlgaKrilova },
   ];
+
+  const size = useWindowSize();
   return (
     <OurTeamContainer>
-      <Typography.Title level={1}>Наши Учителя 💖</Typography.Title>
+      <Typography.Title level={size > 2 ? 2 : 4}>
+        Наши Учителя 💖
+      </Typography.Title>
       <Slider {...settings}>
         {teachers.map(({ name, imgPath }) => {
           return (
@@ -153,7 +135,9 @@ export const OurTeaches: FC<IOurTeam> = (props: IOurTeam) => {
                 </div>
               </div>
               <div style={{ padding: '1rem' }}>
-                <Typography.Title level={4}>{name}</Typography.Title>
+                <Typography.Title level={size > 2 ? 4 : 5}>
+                  {name}
+                </Typography.Title>
               </div>
             </div>
           );
@@ -162,4 +146,3 @@ export const OurTeaches: FC<IOurTeam> = (props: IOurTeam) => {
     </OurTeamContainer>
   );
 };
-// https://github.com/YIZHUANG/react-multi-carousel

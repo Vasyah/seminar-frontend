@@ -548,44 +548,30 @@ body {
     text-align: center;
 }
 
-.ant-form-item-label > label {
-    font-size: 16px !important;
-}
-
-.ant-input {
-    font-size: 16px !important;
-    border-radius: 3px !important;
-    height: 32px !important;
-    /*border-color: #222;*/
-}
-
-.ant-select-selector, .ant-select-single {
-    font-size: 16px !important;
-    height: 32px !important;
-    border-radius: 3px !important;
-    /*border-color: #222 !important;*/
-}
-
 .slick-prev, .slick-next {
-    width: 48px !important;
-    height: 48px !important;
+    width: 32px !important;
+    height: 32px !important;
     transform: translate(0, -75%) !important;
 }
 
 .slick-prev {
-    left: -48px !important;
+    left: -32px !important;
 }
 
 .slick-next {
-    right: -48px !important;
+    right: -32px !important;
 }
 
 .slick-prev:before, .slick-next:before {
-    font-size: 48px !important;
+    font-size: 32px !important;
     color: #00578C !important;
 }
 
 .ant-collapse-header {
     align-items: center !important;
+
+}
+
+@media screen and (max-width: 600px) {
 
 }

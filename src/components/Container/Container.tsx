@@ -1,14 +1,14 @@
-import React, { FC, useEffect, useState } from 'react';
-import { Divider, Layout } from 'antd';
+import React, { FC } from 'react';
+import { ConfigProvider, Divider } from 'antd';
 import { Banner } from '../Banner/Banner';
 import { Tips } from '../Tips/Tips';
 import { Map } from '../Map/Map';
 import styled from 'styled-components';
 import { breakpoints } from '../../utils/breakpoints';
 import { OurTeam } from '../OurTeam/OurTeam';
-import { OurTeaches } from '../OurTeachers/OutTeachers';
+import { OurTeachers } from '../OurTeachers/OutTeachers';
 import { RegistrationFormContainer } from '../../modules/RegistrationForm/components/RegistrationFormContainer';
-import axios from 'axios';
+import { useWindowSize } from '../../hooks/useSize';
 
 export interface ILayout {}
 
@@ -18,18 +18,35 @@ const BodyContainer = styled.div`
 `;
 
 export const Container: FC<ILayout> = (props: ILayout) => {
-  const Container = styled.div``;
+  const size = useWindowSize();
+
   return (
-    <Container>
-      <Banner />
-      <BodyContainer>
-        <RegistrationFormContainer />
-        <Tips />
-        <Divider />
-        <Map />
-        <OurTeam />
-        <OurTeaches />
-      </BodyContainer>
-    </Container>
+    <ConfigProvider
+      theme={{
+        token: {
+          fontFamily: "'Roboto',Arial,sans-serif;",
+          fontSize: 14,
+          borderRadius: 4,
+          controlHeight: 36,
+        },
+        components: {
+          Checkbox: {
+            controlHeight: 40,
+          },
+        },
+      }}
+    >
+      <div>
+        <Banner />
+        <BodyContainer>
+          <RegistrationFormContainer />
+          <Tips />
+          <Divider />
+          <Map />
+          <OurTeam />
+          <OurTeachers />
+        </BodyContainer>
+      </div>
+    </ConfigProvider>
   );
 };
