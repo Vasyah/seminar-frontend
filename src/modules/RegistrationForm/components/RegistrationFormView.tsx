@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Button, Checkbox, Col, Form, Input, Row, Select } from 'antd';
 import { RegistrationApi } from '../api/registrationApi';
 import { IUser } from '../types';
@@ -7,15 +7,22 @@ import { ITeachers } from '../../../components/OurTeachers/OutTeachers';
 export interface IRegistrationFormView {
   teachers: Pick<ITeachers, 'name'>[];
   cities: string[];
+
+  setLoading(state: boolean): void;
+
+  onEmailSent(): void;
 }
 
 export const RegistrationFormView: FC<IRegistrationFormView> = ({
   teachers,
   cities,
+  onEmailSent,
+  setLoading,
 }: IRegistrationFormView) => {
   const [form] = Form.useForm();
 
   const onSubmit = async (user: IUser) => {
+    setLoading(true);
     RegistrationApi.createUser({ ...user })
       .then((result) => {
         const data = result?.data as IUser;
@@ -25,6 +32,9 @@ export const RegistrationFormView: FC<IRegistrationFormView> = ({
             RegistrationApi.sendRegistrationEmail(user).then(() => {
               RegistrationApi.updateUser(data?.id, {
                 isRegistrationsEmailSent: true,
+              })?.then(() => {
+                setLoading(false);
+                onEmailSent();
               });
             });
           }
@@ -42,8 +52,6 @@ export const RegistrationFormView: FC<IRegistrationFormView> = ({
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 12 }}
           layout="horizontal"
-          // onValuesChange={onFormLayoutChange}
-          // disabled={componentDisabled}
         >
           <Form.Item
             label="ФИО"

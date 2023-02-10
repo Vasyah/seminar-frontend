@@ -11,7 +11,6 @@ const StyledTime = styled.div`
   flex-direction: column;
   font-size: 24px;
   font-weight: bold;
-
   @media screen and (max-width: ${breakpoints.md}) {
     font-size: 16px;
   }
@@ -24,6 +23,7 @@ const StyledTimeTitle = styled.div`
     font-size: 24px;
   }
 `;
+
 export const Timer: FC<ITime> = (props: ITime) => {
   const date = new Date(2023, 2, 10).getTime();
 
@@ -33,7 +33,7 @@ export const Timer: FC<ITime> = (props: ITime) => {
       intervalDelay={0}
       precision={3}
       renderer={(props) => (
-        <>
+        <div>
           <Row wrap={false}>
             <Col>
               <StyledTime>
@@ -69,7 +69,7 @@ export const Timer: FC<ITime> = (props: ITime) => {
               </StyledTime>
             </Col>
           </Row>
-        </>
+        </div>
       )}
     />
   );

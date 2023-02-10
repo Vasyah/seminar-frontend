@@ -2,11 +2,16 @@ import React, { FC } from 'react';
 import { RegistrationFormView } from './RegistrationFormView';
 import { ITeachers } from '../../../components/OurTeachers/OutTeachers';
 
-export interface IRegistrationFormContainer {}
+export interface IRegistrationFormContainer {
+  onEmailSent(): void;
 
-export const RegistrationFormContainer: FC<IRegistrationFormContainer> = (
-  props: IRegistrationFormContainer,
-) => {
+  setLoading(state: boolean): void;
+}
+
+export const RegistrationFormContainer: FC<IRegistrationFormContainer> = ({
+  onEmailSent,
+  setLoading,
+}: IRegistrationFormContainer) => {
   const teachers: Pick<ITeachers, 'name'>[] = [
     { name: 'Румянцева Людмила Петровна' },
     { name: 'Румянцев Сергей Борисович' },
@@ -59,5 +64,12 @@ export const RegistrationFormContainer: FC<IRegistrationFormContainer> = (
     'Мюнхен',
   ];
 
-  return <RegistrationFormView teachers={teachers} cities={cities} />;
+  return (
+    <RegistrationFormView
+      teachers={teachers}
+      cities={cities}
+      onEmailSent={onEmailSent}
+      setLoading={setLoading}
+    />
+  );
 };
