@@ -5,7 +5,7 @@ export const getRegistrationTemplate = (user: IUser): string => {
   const getCoordinator = (town: string) => {
     switch (town) {
       case 'Москва':
-        return 'Пяткина Юлия (Телефон: 8(903)362-64-69)';
+        return 'Пяткина Юлия (Телефон: 8(903)362-64-69).';
       case 'Калининград':
       case 'Новороссийск':
       case 'Воронеж':

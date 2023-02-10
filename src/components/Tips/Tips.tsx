@@ -9,18 +9,19 @@ export interface ITips {}
 
 const { Panel } = Collapse;
 
-const List = styled.ul`
+const List = styled.ul<{ size: number }>`
   padding-left: 1rem;
   list-style: initial;
-  font-size: 18px;
+  font-size: ${(props) => (props.size > 2 ? '16px' : '14px')};
   font-weight: normal;
   //color: #000;
 `;
 
-const NumberList = styled.ol`
+const NumberList = styled.ol<{ size: number }>`
   padding-left: 1rem;
   list-style: number;
-  font-size: 18px;
+  font-size: ${(props) => (props.size > 2 ? '16px' : '14px')};
+  font-weight: normal;
   //color: #000;
 `;
 
@@ -50,7 +51,7 @@ export const Tips: FC<ITips> = (props: ITips) => {
           key="1"
           style={{ alignItems: 'center' }}
         >
-          <List>
+          <List size={size}>
             <li>
               Паспорт + медицинский полис <b>(обязательно!)</b>
             </li>
@@ -92,12 +93,17 @@ export const Tips: FC<ITips> = (props: ITips) => {
           </List>
         </Panel>
         <Panel header="Как добраться на общественном транспорте" key="2">
-          <Typography.Paragraph>
+          <Typography.Paragraph
+            style={{
+              fontSize: size > 2 ? '16px' : '14px',
+              fontWeight: 'normal',
+            }}
+          >
             Добраться до базы отдыха из Москвы можно на электричке от нескольких
             станций метро, рядом с которыми располагаются станции отправления
             электропоездов
           </Typography.Paragraph>
-          <NumberList>
+          <NumberList size={size}>
             <li>
               Ст. м. «Курская» — станция «Москва-Курская» (Курский вокзал);
             </li>
@@ -113,18 +119,18 @@ export const Tips: FC<ITips> = (props: ITips) => {
               Ст. м. «Дмитровская» — станция «Дмитровская»; Ст. м. «Войковская»
               — станция «Ленинградская»; Ст. м. «Тушинская» — станция «Тушино».
             </li>
-            <Typography.Title level={3}>
+            <li style={{ fontWeight: 'bold' }}>
               Станция прибытия — «Румянцево»
-            </Typography.Title>
+            </li>
           </NumberList>
         </Panel>
         <Panel header="Время заезда и отъезда" key="3">
-          <Typography.Paragraph>
-            Заезд на базу возможен с 21 октября 2023г. с 11:00
-          </Typography.Paragraph>
-          <Typography.Paragraph>
-            Отъезд с базы возможен 23 октября 2023г. с 16:00
-          </Typography.Paragraph>
+          <div style={{ fontSize: size > 2 ? '16px' : '14px' }}>
+            Заезд на базу возможен с 21 апреля 2023г. с 11:00
+          </div>
+          <div style={{ fontSize: size > 2 ? '16px' : '14px' }}>
+            Отъезд с базы возможен 23 апреля 2023г. с 16:00
+          </div>
         </Panel>
       </Collapse>
     </Row>

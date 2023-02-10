@@ -6,9 +6,9 @@ import { Map } from '../Map/Map';
 import styled from 'styled-components';
 import { breakpoints } from '../../utils/breakpoints';
 import { OurTeam } from '../OurTeam/OurTeam';
-import { OurTeachers } from '../OurTeachers/OutTeachers';
 import { RegistrationFormContainer } from '../../modules/RegistrationForm/components/RegistrationFormContainer';
 import { useWindowSize } from '../../hooks/useSize';
+import { OurTeachers } from '../OurTeachers/OutTeachers';
 
 export interface ILayout {}
 

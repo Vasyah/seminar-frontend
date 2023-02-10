@@ -118,7 +118,11 @@ export const OurTeam: FC<IOurTeam> = (props: IOurTeam) => {
           Мы будем рады ответить на любой вопрос!
         </Typography.Title>
       </div>
-      <Row gutter={[16, 16]} className={'mt-3'} justify={'center'}>
+      <Row
+        gutter={size > 2 ? [16, 16] : [0, 16]}
+        className={'mt-3'}
+        justify={'center'}
+      >
         {members.map(
           (
             { description, imgPath, isMain, name, phone, phoneLink, telegram },

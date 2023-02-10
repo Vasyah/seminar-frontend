@@ -39,8 +39,8 @@ export const RegistrationFormView: FC<IRegistrationFormView> = ({
         <Form
           form={form}
           onFinish={onSubmit}
-          labelCol={{ span: 12 }}
-          wrapperCol={{ span: 6 }}
+          labelCol={{ span: 10 }}
+          wrapperCol={{ span: 12 }}
           layout="horizontal"
           // onValuesChange={onFormLayoutChange}
           // disabled={componentDisabled}
@@ -113,7 +113,7 @@ export const RegistrationFormView: FC<IRegistrationFormView> = ({
             <Checkbox.Group>
               <Row>
                 {teachers.map((teacher) => (
-                  <Col xs={24} key={teacher.name}>
+                  <Col xs={24} md={12} key={teacher.name}>
                     <Checkbox value={teacher.name}>{teacher.name}</Checkbox>
                   </Col>
                 ))}
