@@ -16,6 +16,7 @@ const BannerContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 500px;
   flex-direction: column;
 
   @media (max-width: ${breakpoints.md}) {
@@ -24,14 +25,16 @@ const BannerContainer = styled.header`
     padding: 1rem;
   }
 
-  @media (min-width: ${breakpoints.md}) and (max-width: ${breakpoints.lg}) {
+  @media (min-width: ${breakpoints.md}) {
     min-height: 500px;
   }
-  @media (min-width: ${breakpoints.lg}) and (max-width: ${breakpoints.xl}) {
-    min-height: 700px;
+  @media (min-width: ${breakpoints.md}) and (max-width: ${breakpoints.lg}) {
+    min-height: 450px;
   }
-  @media (min-width: ${breakpoints.xl}) {
-    min-height: 700px;
+
+  @media (min-width: ${breakpoints.preXl}) {
+    background-size: contain;
+    background-color: #0e0842;
   }
 `;
 

@@ -56,7 +56,7 @@ export const Container: FC<ILayout> = (props: ILayout) => {
       <div>
         {loading && (
           <LoadingContainer>
-            <Spin />
+            <Spin style={{ zIndex: 9999 }} />
           </LoadingContainer>
         )}
         <Banner />
