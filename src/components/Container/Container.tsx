@@ -36,6 +36,7 @@ export const Container: FC<ILayout> = (props: ILayout) => {
   const size = useWindowSize();
   const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <ConfigProvider
       theme={{

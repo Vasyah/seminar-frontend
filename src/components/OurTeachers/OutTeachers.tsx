@@ -27,9 +27,10 @@ import AllaKuznecova from '../../images/ourTeachers/20.jpeg';
 import Kovalenkovi from '../../images/ourTeachers/21.jpeg';
 import IgorNebesnii from '../../images/ourTeachers/22.png';
 import OlgaKrilova from '../../images/ourTeachers/23.jpeg';
-import { Typography, Image, Button } from 'antd';
+import { Typography } from 'antd';
 import { ImageContainer, OurTeamContainer } from './styles';
 import { useWindowSize } from '../../hooks/useSize';
+import { breakpointsNum } from '../../utils/breakpoints';
 
 export interface IOurTeam {}
 
@@ -40,32 +41,24 @@ export interface ITeachers {
 
 export const OurTeachers: FC<IOurTeam> = (props: IOurTeam) => {
   const settings: Settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     arrows: true,
-    // adaptiveHeight: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
-    // nextArrow: (
-    //   <Button type="primary" icon={<DownloadOutlined />} size={'small'} />
-    // ),
-    // prevArrow: (
-    //   <Button type="primary" icon={<DownloadOutlined />} size={'small'} />
-    // ),
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: breakpointsNum.lg,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: breakpointsNum.md,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -73,12 +66,10 @@ export const OurTeachers: FC<IOurTeam> = (props: IOurTeam) => {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: breakpointsNum.sm,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: false,
-          arrows: true,
         },
       },
     ],

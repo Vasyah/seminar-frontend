@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { breakpoints } from '../../utils/breakpoints';
 
 export const OurTeamContainer = styled.div`
-  padding: 0 2rem;
+  padding: 0 4rem;
   max-width: ${breakpoints.lg};
   margin: 2rem auto 0;
   text-align: center;

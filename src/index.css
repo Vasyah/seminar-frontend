@@ -553,7 +553,7 @@ body {
 .slick-prev, .slick-next {
     width: 32px !important;
     height: 32px !important;
-    transform: translate(0, -75%) !important;
+    transform: translate(0, -100%) !important;
 }
 
 .slick-prev {
@@ -566,14 +566,30 @@ body {
 
 .slick-prev:before, .slick-next:before {
     font-size: 32px !important;
-    color: #00578C !important;
+    color: #2331C9 !important;
 }
 
 .ant-collapse-header {
     align-items: center !important;
-
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 1200px) {
+    .slick-prev, .slick-next {
+        width: 64px !important;
+        height: 64px !important;
+        display: flex;
+        transform: translate(0, -100%) !important;
+    }
 
+    .slick-prev:before, .slick-next:before {
+        font-size: 64px !important;
+    }
+
+    .slick-prev {
+        left: -48px !important;
+    }
+
+    .slick-next {
+        right: -48px !important;
+    }
 }

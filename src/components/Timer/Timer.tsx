@@ -25,7 +25,7 @@ const StyledTimeTitle = styled.div`
 `;
 
 export const Timer: FC<ITime> = (props: ITime) => {
-  const date = new Date(2023, 2, 10).getTime();
+  const date = new Date(2023, 3, 21).getTime();
 
   return (
     <Countdown
