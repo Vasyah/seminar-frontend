@@ -59,12 +59,15 @@ export const getRegistrationTemplate = (user: IUser): string => {
   const paymentAttention = `<p style='font-size:17px'>Для подтверждения участия в Семинаре, необходимо произвести <b style='color: red;text-decoration:underline'>оплату до 10 марта 2023г.</b>, по указанным реквизитам:</p>`;
   const paymentType = getPaymentType(user.town);
 
+  const price = 8100;
+
   const template = getTemplate(
     user,
     coordinator,
     paymentAttention,
     paymentType,
     isTeacher,
+    price,
   );
 
   return template;
