@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { ConfigProvider, Divider, Spin, Typography } from 'antd';
 import { Banner } from '../Banner/Banner';
 import { Tips } from '../Tips/Tips';
@@ -11,6 +11,7 @@ import { useWindowSize } from '../../hooks/useSize';
 import { OurTeachers } from '../OurTeachers/OutTeachers';
 import { RegistrationConfirm } from '../RegistrationConfirm/RegistrationConfirm';
 import { seminarPrice } from '../../utils/variables';
+import { getRegistrationTemplate } from '../../modules/RegistrationForm/helpers/getRegistrationTemplate';
 
 export interface ILayout {}
 

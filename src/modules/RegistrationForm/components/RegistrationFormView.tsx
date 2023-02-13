@@ -1,5 +1,14 @@
-import React, { FC, useState } from 'react';
-import { Button, Checkbox, Col, Form, Input, Row, Select } from 'antd';
+import React, { FC } from 'react';
+import {
+  Button,
+  Checkbox,
+  Col,
+  Form,
+  Input,
+  notification,
+  Row,
+  Select,
+} from 'antd';
 import { RegistrationApi } from '../api/registrationApi';
 import { IUser } from '../types';
 import { ITeachers } from '../../../components/OurTeachers/OutTeachers';
@@ -40,7 +49,15 @@ export const RegistrationFormView: FC<IRegistrationFormView> = ({
           }
         }
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        setLoading(false);
+        notification.error({
+          message: `Ошибка во время регистрации`,
+          description:
+            'Возможно, у нас проблемы с сервером, пожалуйста, повторите попытку позже😢',
+          placement: 'top',
+        });
+      });
   };
 
   return (

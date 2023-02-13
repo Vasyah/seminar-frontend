@@ -44,10 +44,13 @@ const BannerContainer = styled.header`
 
 const TimerContainer = styled.div`
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
   left: 50%;
   transform: translate(-50%, 0);
   color: #fff !important;
+  padding: 0.35rem;
+  box-shadow: inset 0 0 100px rgba(98, 96, 96, 0.6);
+  border-radius: 12px;
 `;
 
 export const Banner: FC<IBanner> = (props: IBanner) => {
