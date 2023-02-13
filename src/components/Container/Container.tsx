@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { ConfigProvider, Divider, Spin } from 'antd';
+import { ConfigProvider, Divider, Spin, Typography } from 'antd';
 import { Banner } from '../Banner/Banner';
 import { Tips } from '../Tips/Tips';
 import { Map } from '../Map/Map';
@@ -10,6 +10,7 @@ import { RegistrationFormContainer } from '../../modules/RegistrationForm/compon
 import { useWindowSize } from '../../hooks/useSize';
 import { OurTeachers } from '../OurTeachers/OutTeachers';
 import { RegistrationConfirm } from '../RegistrationConfirm/RegistrationConfirm';
+import { seminarPrice } from '../../utils/variables';
 
 export interface ILayout {}
 
@@ -30,6 +31,15 @@ const LoadingContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+const PriceContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(102, 73, 189, 0.2);
 `;
 
 export const Container: FC<ILayout> = (props: ILayout) => {
@@ -61,6 +71,20 @@ export const Container: FC<ILayout> = (props: ILayout) => {
         )}
         <Banner />
         <BodyContainer>
+          <div style={{ position: 'relative' }}>
+            <Typography.Title
+              style={{
+                padding: '0.5rem 2rem',
+                borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+                borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+              }}
+              level={size > 2 ? 4 : 5}
+              className={'ta-center'}
+            >
+              Стоимость участия: {seminarPrice} рублей
+            </Typography.Title>
+            <PriceContainer />
+          </div>
           <RegistrationFormContainer
             onEmailSent={() => {
               setIsModalOpen(true);

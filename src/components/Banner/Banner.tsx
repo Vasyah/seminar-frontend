@@ -33,8 +33,12 @@ const BannerContainer = styled.header`
   }
 
   @media (min-width: ${breakpoints.preXl}) {
-    background-size: contain;
-    background-color: #0e0842;
+    margin: 0 auto;
+    height: 500px;
+  }
+
+  @media (min-width: 1700px) {
+    height: 650px;
   }
 `;
 

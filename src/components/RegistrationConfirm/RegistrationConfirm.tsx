@@ -16,12 +16,13 @@ export const RegistrationConfirm: FC<IRegistrationConfirm> = ({
       title="Поздравляем, регистрация прошла успешно! "
       open={isOpen}
       onOk={() => onChange(false)}
-      style={{ padding: '2rem' }}
+      style={{ padding: '2rem 1rem' }}
       cancelButtonProps={{
         disabled: true,
         style: { visibility: 'hidden', display: 'none' },
       }}
       okText={'Ура!'}
+      onCancel={() => onChange(false)}
     >
       <p>
         В ближайшее время Вам на почту поступит инструкция по оплате и
