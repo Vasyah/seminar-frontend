@@ -45,7 +45,7 @@ export const getRegistrationTemplate = (user: IUser): string => {
         return '<span style="font-size:17px">Перевод денежных средств на карту координатора:</span><br /><span style="font-size:17px">* Сбербанк - по номеру телефона 8(913)738-94-54</span><br /><span style="font-size:17px">* Открытие- по номеру телефона 8(913)738-94-54</span>';
       case 'Тольятти':
       case 'Самара':
-        return '<span style="font-size:17px">Перевод денежных средств на карту координатора:</span><br /><span style="font-size:17px">* Сбербанк - по номеру телефона 8(919)814-45-66</span><br /><span style="font-size:17px">* Оплата наличными координатору.</span>';
+        return '<span style="font-size:17px">Наличными или Перевод денежных средств на карту (Козловский Андрей Вячеславович):</span><br /><span style="font-size:17px">* Сбербанк - по номеру телефона 8(916)267-35-33 (Номер карты: 2202 2014 3921 0226)</span><br /><span style="font-size:17px">* Оплата наличными координатору.</span>';
       case 'Тюмень':
       case 'Казань':
       case 'Нижний Новгород':
@@ -57,7 +57,7 @@ export const getRegistrationTemplate = (user: IUser): string => {
 
   const isTeacher = user.status === 'Учитель';
   const coordinator = getCoordinator(user.town);
-  const paymentAttention = `<p style='font-size:17px'>Для подтверждения участия в Семинаре, необходимо произвести <b style='color: red;text-decoration:underline'>оплату до 10 марта 2023г.</b>, по указанным реквизитам:</p>`;
+  const paymentAttention = `<p style='font-size:17px'>Для подтверждения участия в Семинаре, необходимо произвести <b style='color: red;text-decoration:underline'>оплату до 1 апреля 2023г.</b>, по указанным реквизитам:</p>`;
   const paymentType = getPaymentType(user.town);
 
   const template = getTemplate(
