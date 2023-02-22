@@ -27,6 +27,8 @@ import AllaKuznecova from '../../images/ourTeachers/20.jpeg';
 import Kovalenkovi from '../../images/ourTeachers/21.jpeg';
 import IgorNebesnii from '../../images/ourTeachers/22.png';
 import OlgaKrilova from '../../images/ourTeachers/23.jpeg';
+import DmitriyPirogov from '../../images/ourTeachers/24.jpeg';
+
 import { Typography } from 'antd';
 import { ImageContainer, OurTeamContainer } from './styles';
 import { useWindowSize } from '../../hooks/useSize';
@@ -85,7 +87,8 @@ export const OurTeachers: FC<IOurTeam> = (props: IOurTeam) => {
     { name: 'Шагалина Эльмира Хабибовна', imgPath: ElmiraShagalina },
     { name: 'Ступакова Ольга Петровна', imgPath: OlgaStupakova },
     { name: 'Епифанцева Елена Романовна', imgPath: ElenaEpifancefa },
-    { name: 'Ким Сэн Хи\n', imgPath: SinhiKim },
+    { name: 'Ким Сэн Хи', imgPath: SinhiKim },
+    { name: 'Пирогов Дмитрий Евгеньевич', imgPath: DmitriyPirogov },
     { name: 'Черепанов Сергей Васильевич', imgPath: SergeiCherepanov },
     { name: 'Король Валерий Юрьевич', imgPath: ValeriiKorol },
     { name: 'Погонышева Татьяна Владимировна', imgPath: TatyanaPogonisheva },
