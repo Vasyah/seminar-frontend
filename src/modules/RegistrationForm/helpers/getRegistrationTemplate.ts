@@ -67,6 +67,8 @@ export const getRegistrationTemplate = (user: IUser): string => {
     paymentType,
     isTeacher,
     seminarPrice,
+    "https://docs.google.com/document/d/101ZSdc89qkvMlpjy3QIEv5hQsXB-uCzBjYXxaJALJHc/edit?usp=sharing",
+    "https://docs.google.com/document/d/193qRICYYYKd_vVfMkrNi_K0TtJ5X6123jvI7UcS7xEM/edit?usp=sharing"
   );
 
   return template;
