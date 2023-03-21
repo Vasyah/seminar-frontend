@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { ConfigProvider, Divider, Spin, Typography } from 'antd';
 import { Banner } from '../Banner/Banner';
 import { Tips } from '../Tips/Tips';
@@ -11,7 +11,7 @@ import { useWindowSize } from '../../hooks/useSize';
 import { OurTeachers } from '../OurTeachers/OutTeachers';
 import { RegistrationConfirm } from '../RegistrationConfirm/RegistrationConfirm';
 import { seminarPrice } from '../../utils/variables';
-import { getRegistrationTemplate } from '../../modules/RegistrationForm/helpers/getRegistrationTemplate';
+import { RegistrationEnd } from '../RegistrationEnd/RegistrationEnd';
 
 export interface ILayout {}
 
@@ -47,7 +47,8 @@ export const Container: FC<ILayout> = (props: ILayout) => {
   const size = useWindowSize();
   const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [registrationEnd, setRegistrationEnd] = useState(true);
+  
   return (
     <ConfigProvider
       theme={{
@@ -86,12 +87,15 @@ export const Container: FC<ILayout> = (props: ILayout) => {
             </Typography.Title>
             <PriceContainer />
           </div>
-          <RegistrationFormContainer
-            onEmailSent={() => {
-              setIsModalOpen(true);
-            }}
-            setLoading={(state: boolean) => setLoading(state)}
-          />
+          {registrationEnd && <RegistrationEnd />}
+          {!registrationEnd && (
+            <RegistrationFormContainer
+              onEmailSent={() => {
+                setIsModalOpen(true);
+              }}
+              setLoading={(state: boolean) => setLoading(state)}
+            />
+          )}
           <Tips />
           <Divider />
           <Map />
